@@ -1,0 +1,113 @@
+/* BASIC STYLES HERE */
+@charset "UTF-8";
+
+.gachamon-detail {
+  transform: scale(0);
+  animation: collected 1s forwards cubic-bezier(0.17, 0.67, 0.56, 1.15);
+}
+
+.gachamon-detail::before {
+  content: "💽";
+  animation: card-pack 0.6s linear forwards;
+  z-index: 1000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+
+
+.gachamon-detail {
+  font-size: 200px;
+}
+
+.gacha-btn {
+  transition: all .5s linear;
+}
+
+.gacha-btn:focus {
+  transform: rotate(270deg);
+}
+
+.color-1 {
+  animation-timing-function: cubic-bezier(0.67, 0.24, 0.56, 1.25);
+}
+
+.color-2 {
+  filter: drop-shadow(0px 0px 5px #ff552a) hue-rotate(20deg);
+  animation-timing-function: cubic-bezier(0.17, 0.67, 0.56, 1.15);
+  animation-delay: 0.1s;
+}
+
+.color-3 {
+  filter: drop-shadow(0px 0px 5px #ff2a8d) invert(100%) hue-rotate(45deg);
+  position: relative;
+  animation-delay: 0.5s;
+  animation-duration: 0.8s;
+  animation-timing-function: cubic-bezier(0.86, 0.04, 0.4, 1.2);
+}
+
+.color-3::after {
+  content: "";
+  animation: glow 1s linear alternate infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+@keyframes collected {
+  0% {
+    transform: scale(0) rotate3d(1, 0, 0, 180deg);
+  }
+
+  90% {
+    transform: scale(1.5) rotate3d(0, 0, 0, 180deg);
+  }
+
+  100% {
+    transform: scale(1) rotate3d(0, 0, 0, 180deg);
+  }
+}
+
+@keyframes card-pack {
+  0% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+    z-index: unset;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+  }
+
+  90% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes glow {
+  0% {
+    backdrop-filter: drop-shadow(0px 0px 5px #2a63ff);
+  }
+
+  100% {
+    backdrop-filter: drop-shadow(0px 0px 20px #2a63ff);
+  }
+}
